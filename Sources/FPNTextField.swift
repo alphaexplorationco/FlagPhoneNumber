@@ -17,6 +17,12 @@ open class FPNTextField: UITextField {
 		}
 	}
 
+    @objc open var leftViewEdgeInsets: UIEdgeInsets = UIEdgeInsets.zero {
+        didSet {
+            layoutIfNeeded()
+        }
+    }
+    
 	private var flagWidthConstraint: NSLayoutConstraint?
 	private var flagHeightConstraint: NSLayoutConstraint?
 
@@ -165,10 +171,10 @@ open class FPNTextField: UITextField {
 	}
 
 	open override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
-		let size = leftViewSize
+        let size = CGSize(width: leftViewSize.width + leftViewEdgeInsets.right, height: leftViewSize.height + leftViewEdgeInsets.bottom)
 		let width: CGFloat = min(bounds.size.width, size.width)
 		let height: CGFloat = min(bounds.size.height, size.height)
-		let newRect: CGRect = CGRect(x: bounds.minX, y: bounds.minY, width: width, height: height)
+        let newRect: CGRect = CGRect(x: bounds.minX + leftViewEdgeInsets.left, y: bounds.minY + leftViewEdgeInsets.top, width: width, height: height)
 
 		return newRect
 	}

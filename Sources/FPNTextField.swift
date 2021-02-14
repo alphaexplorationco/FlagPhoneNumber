@@ -118,7 +118,7 @@ open class FPNTextField: UITextField {
 		if let regionCode = Locale.current.regionCode, let countryCode = FPNCountryCode(rawValue: regionCode) {
 			setFlag(countryCode: countryCode)
 		} else {
-			setFlag(countryCode: FPNCountryCode.FR)
+			setFlag(countryCode: FPNCountryCode.US)
 		}
 	}
 

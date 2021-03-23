@@ -246,4 +246,5 @@ public enum FPNCountryCode: String {
 	case VG = "VG"
 	case VI = "VI"
 	case AX = "AX"
+	case CW = "CW"
 }
